@@ -56,5 +56,5 @@ main .features {
     width: 75%;
 }
 
-main .features h1 {font-size: 50px;}
+main .features h1 {font-size: 50px; margin-left: 10px;}
 main .features p {max-width: 900px; margin: 20px auto;}
