@@ -5,7 +5,18 @@
 {% block content %}
 <div class="features">
   <h1>Мои заметки</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus sit voluptatum, praesentium, corrupti illo aliquam blanditiis officiis incidunt obcaecati nisi assumenda. Praesentium doloribus eos commodi reiciendis culpa animi ut et.</p>
-  <button class="btn btn-danger">Просто нажми</button>
+  {% if notes %}
+  {% for el in notes %}
+    <div class="card">
+      <h3 class="card-header">{{el.title}}</h3>
+      <div class="card-body">
+        <p class="card-text">{{el.full_text}}</p>
+        <p class="card-text">{{el.date}}</p>
+      </div>
+    </div>
+  {% endfor %}
+  {% else %}
+    <h2>Заметок пока нет</h2>
+  {% endif %}
 </div>
 {% endblock %}
