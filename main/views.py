@@ -4,9 +4,8 @@ from django.shortcuts import render
 
 def index(request):
   data = {
-    "title": "Main page",
-    "values": ["Some", "Hello", "2021"],
-    "obj": {"Car": "Schevrolet", "Hobby": "Sport", "Job": "DevOps"},
+    "title": "Привет!",
+    "says": "Никто не стремится получать советы, зато деньги получать горазды все;\nвыходит - деньги лучше, чем советы.\n		-- Дж.Свифт"
   }
   return render(request, 'main/index.html', data)
 

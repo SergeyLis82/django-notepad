@@ -5,19 +5,6 @@
 {% block content %}
   <div class="features">
     <h1>{{ title }}</h1>
-    {% filter upper %}
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus sit voluptatum, praesentium, corrupti illo aliquam blanditiis officiis incidunt obcaecati nisi assumenda. Praesentium doloribus eos commodi reiciendis culpa animi ut et.</p>
-    {% endfilter %}
-    <button class="btn btn-warning">Просто нажми</button>
-    {% for item in values %}
-      {% if item == 'Hello' %}
-      <p>{{ item|upper }}</p>
-      {% endif %}
-    {% endfor %}
-    {% for key, item in obj.items %}
-      {% filter lower %}
-      <p>{{ key }} - {{ item }}</p>
-      {% endfilter %}
-    {% endfor %}
+    <p>{{ says|linebreaksbr }}</p>
   </div>
 {% endblock %}
