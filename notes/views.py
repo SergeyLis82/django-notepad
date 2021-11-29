@@ -7,7 +7,7 @@ from .forms import NotesForm
 def notes(request):
     notes = Notes.objects.order_by('-date')
     data = {
-    "title": "Home",
+    "title": "Notes",
     "heading": "Мои заметки",
     'notes': notes
     }

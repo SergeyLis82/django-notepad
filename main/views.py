@@ -1,12 +1,13 @@
 from django.shortcuts import render
-
+import subprocess
 # Create your views here.
 
 def index(request):
+  output = subprocess.getoutput('fortune')
   data = {
     "title": "Home",
     "heading": "Привет!",
-    "content": "Никто не стремится получать советы, зато деньги получать горазды все;\nвыходит - деньги лучше, чем советы.\n		-- Дж.Свифт"
+    "content": output
   }
   return render(request, 'main/index.html', data)
 
