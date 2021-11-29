@@ -3,14 +3,13 @@
 {% block title %}Мои заметки{% endblock %}
 
 {% block content %}
-<div class="features">
   <h1>Мои заметки</h1>
   {% if notes %}
   {% for el in notes %}
     <div class="card">
-      <h3 class="card-header">{{el.title}}</h3>
+      <h4 class="card-header">{{el.title}}</h4>
       <div class="card-body">
-        <p class="card-text">{{el.full_text|linebreaksbr}}</p>
+        <p class="card-text">{{el.preview|linebreaksbr}}</p>
         <p class="card-text">{{el.date}}</p>
       </div>
     </div>
@@ -18,5 +17,4 @@
   {% else %}
     <h2>Заметок пока нет</h2>
   {% endif %}
-</div>
 {% endblock %}
