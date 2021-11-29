@@ -1,9 +1,8 @@
 {% extends 'main/_layout.html' %}
 
-{% block title %}Мои заметки{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-  <h1>Мои заметки</h1>
   <a href="{% url 'add_note' %}"><button class="btn btn-info"><i class="fa fa-plus-circle"></i>Добавить заметку</button></a>
   {% if notes %}
   {% for el in notes %}

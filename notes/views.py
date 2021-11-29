@@ -6,7 +6,12 @@ from .forms import NotesForm
 
 def notes(request):
     notes = Notes.objects.order_by('-date')
-    return render(request, 'notes/notes.html', {'notes': notes})
+    data = {
+    "title": "Home",
+    "heading": "Мои заметки",
+    'notes': notes
+    }
+    return render(request, 'notes/notes.html', data)
 
 def add_note(request):
     error = ''
@@ -20,7 +25,9 @@ def add_note(request):
 
     form = NotesForm()
 
-    data = {'form': form,
+    data = {"title": "New note",
+            "heading": "Добавление новой заметки",
+            'form': form,
             'error': error}
 
     return render(request, 'notes/add_note.html', data)

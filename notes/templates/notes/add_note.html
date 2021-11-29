@@ -1,10 +1,8 @@
 {% extends 'main/_layout.html' %}
 
-{% block title %}Новая заметка{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-<div class="features">
-  <h1>Добавление новой заметки</h1>
   <form method="post">
       {% csrf_token %}
       {{ form.title }}<br>
@@ -21,5 +19,4 @@
       <span>{{ error }}</span>
       <button class="btn btn-success" type="submit">Добавить</button>
   </form>  
-</div>
 {% endblock %}
