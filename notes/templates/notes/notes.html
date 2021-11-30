@@ -3,14 +3,14 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-  <a href="{% url 'add_note' %}"><button class="btn btn-info"><i class="fa fa-plus-circle"></i>Добавить заметку</button></a>
+  <a href="{% url 'notes:add_note' %}"><button class="btn btn-info"><i class="fa fa-plus-circle"></i>Добавить заметку</button></a>
   {% if notes %}
-  {% for el in notes %}
+  {% for note in notes %}
     <div class="card">
-      <h4 class="card-header">{{el.title}}</h4>
+      <a href="{% url 'notes:detail' note.id %}"><h4 class="card-header">{{note.title}}</h4></a>
       <div class="card-body">
-        <p class="card-text">{{el.preview|linebreaksbr}}</p>
-        <p class="card-text">{{el.date}}</p>
+        <p class="card-text">{{note.preview|linebreaksbr}}</p>
+        <p class="card-text">{{note.date}}</p>
       </div>
     </div>
   {% endfor %}

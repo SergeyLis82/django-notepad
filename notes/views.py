@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Notes
 from .forms import NotesForm
 
@@ -31,3 +31,12 @@ def add_note(request):
             'error': error}
 
     return render(request, 'notes/add_note.html', data)
+
+def detail(request, note_id):
+    note = get_object_or_404(Notes, pk=note_id)
+    data = {
+    "title": "Note",
+    "heading": f"Заметка - {note.title}",
+    'note': note,
+    }
+    return render(request, 'notes/note.html', data)

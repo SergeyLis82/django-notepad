@@ -1,0 +1,17 @@
+{% extends 'main/_layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  {% if note %}
+    <div class="card">
+      <h4 class="card-header">{{ note.title }}</h4>
+      <div class="card-body">
+        <p class="card-text">{{ note.full_text|linebreaksbr }}</p>
+        <p class="card-text">{{ note.date }}</p>
+      </div>
+    </div>
+  {% else %}
+    <h2>Заметки нет</h2>
+  {% endif %}
+{% endblock %}
