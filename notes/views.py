@@ -40,3 +40,32 @@ def detail(request, note_id):
     'note': note,
     }
     return render(request, 'notes/note.html', data)
+
+def update_note(request, note_id):
+    note = get_object_or_404(Notes, pk=note_id)
+    note_dict = {
+        'id': note.pk,
+        'title': note.title,
+        'preview': note.preview,
+        'date': note.date,
+        'full_text': note.full_text,
+    }
+    
+    error = ''
+    if request.method == 'POST':
+        form = NotesForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('notes')
+        else:
+            error = "Форма заполнена неверно"
+    
+    form = NotesForm(note_dict)
+    
+    data = {"title": "Update note",
+            "heading": f"Изменение заметки {note.title}",
+            'form': form,
+            'error': error
+            }
+    
+    return render(request, 'notes/update_note.html', data)
