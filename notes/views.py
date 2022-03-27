@@ -1,10 +1,11 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Notes
 from .forms import NotesForm
 
 # Create your views here.
 
-def notes(request):
+def view_notes(request):
     notes = Notes.objects.order_by('-date')
     data = {
     "title": "Notes",
@@ -19,7 +20,7 @@ def add_note(request):
         form = NotesForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('notes')
+            return redirect('notes:view_notes')
         else:
             error = "Форма заполнена неверно"
 
@@ -41,31 +42,30 @@ def detail(request, note_id):
     }
     return render(request, 'notes/note.html', data)
 
-def update_note(request, note_id):
+def edit_note(request, note_id):
     note = get_object_or_404(Notes, pk=note_id)
-    note_dict = {
-        'id': note.pk,
-        'title': note.title,
-        'preview': note.preview,
-        'date': note.date,
-        'full_text': note.full_text,
-    }
-    
     error = ''
-    if request.method == 'POST':
-        form = NotesForm(request.POST)
+    # Обработка метода GET
+    if request.method == 'GET':
+        form = NotesForm(instance=note)
+        data = {"title": "Update note",
+                "heading": f"Изменение заметки - {note.title}",
+                'note': note,
+                'form': form,
+                'error': error
+                }
+        return render(request, 'notes/edit_note.html', data)
+    # Обработка метода POST
+    else:
+        form = NotesForm(request.POST, instance=note)
         if form.is_valid():
             form.save()
-            return redirect('notes')
+            return redirect('notes:view_notes')
         else:
             error = "Форма заполнена неверно"
-    
-    form = NotesForm(note_dict)
-    
-    data = {"title": "Update note",
-            "heading": f"Изменение заметки {note.title}",
-            'form': form,
-            'error': error
-            }
-    
-    return render(request, 'notes/update_note.html', data)
+
+def delete_note(request, note_id):
+    note = get_object_or_404(Notes, pk=note_id)
+    note.delete()
+    return redirect('notes:view_notes')
+    #return HttpResponseRedirect(notes_url)
