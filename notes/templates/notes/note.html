@@ -9,6 +9,9 @@
       <div class="card-body">
         <p class="card-text">{{ note.full_text|linebreaksbr }}</p>
         <p class="card-text">{{ note.date }}</p>
+        <a href="{% url 'notes:edit_note' note.id %}" style="text-decoration: none;" class="text-secondary">Редактировать</a>
+        |
+        <a href="{% url 'notes:delete_note' note.id %}" style="text-decoration: none;" class="text-secondary">Удалить</a>
       </div>
     </div>
   {% else %}
