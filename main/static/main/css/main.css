@@ -3,11 +3,15 @@ body {
 }
 
 aside {
-    float: left;
     background: #181818;
     width: 20%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
     padding: 2.5%;
-    height: 100vh;
+    overflow-x: hidden;
     color: #fff;
     border-right: 5px solid #4d4d4d;
 }
@@ -48,8 +52,10 @@ aside ul li:hover, aside ul a:hover {
     transform: scale(1.05);
 }
 
+main {
+    margin-left: 22%;
+}
 main .features {
-    float: left;
     color: rgb(49, 49, 49);
     margin-top: 100px;
     text-align: left;
