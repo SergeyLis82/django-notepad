@@ -5,16 +5,18 @@
 {% block content %}
   {% if note %}
     <div class="card">
-      <h4 class="card-header">{{ note.title }}</h4>
-      <div class="card-body">
-        <p class="card-text">{{ note.full_text|linebreaksbr }}</p>
-        <p class="card-text">{{ note.date }}</p>
+      <div class="card-header">
+        <h5>{{ note.preview }}</h5>
         <a href="{% url 'notes:edit_note' note.id %}" style="text-decoration: none;" class="text-secondary">Редактировать</a>
         |
         <a href="{% url 'notes:delete_note' note.id %}" style="text-decoration: none;" class="text-secondary">Удалить</a>
       </div>
+      <div class="card-body">
+        <p class="card-text">{{ note.full_text|linebreaksbr }}</p>
+        <p class="card-text">{{ note.date }}</p>
+      </div>
     </div>
   {% else %}
-    <h2>Заметки нет</h2>
+    <h3>Заметки нет</h3>
   {% endif %}
 {% endblock %}
