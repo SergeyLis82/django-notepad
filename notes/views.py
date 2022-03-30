@@ -2,11 +2,12 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Notes
 from .forms import NotesForm
+from django.utils import timezone
 
 # Create your views here.
 
 def view_notes(request):
-    notes = Notes.objects.order_by('-date')
+    notes = Notes.objects.order_by('-date_create')
     data = {
     "title": "Notes",
     "heading": "Мои заметки",
@@ -59,6 +60,7 @@ def edit_note(request, note_id):
     else:
         form = NotesForm(request.POST, instance=note)
         if form.is_valid():
+            note.date_update = timezone.now()
             form.save()
             return redirect('notes:view_notes')
         else:

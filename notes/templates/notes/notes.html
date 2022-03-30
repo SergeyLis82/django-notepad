@@ -14,7 +14,11 @@
       </div>
       <div class="card-body">
         <p class="card-text">{{ note.preview|linebreaksbr }}</p>
-        <p class="text-secondary text-opacity-75">{{ note.date }}</p>
+        {% if note.date_update %}
+        <p class="text-secondary text-opacity-75">Обновлено: {{ note.date_update }}</p>
+        {% else %}
+        <p class="text-secondary text-opacity-75">Создано: {{ note.date_create }}</p>
+        {% endif %}
       </div>
     </div>
   {% endfor %}

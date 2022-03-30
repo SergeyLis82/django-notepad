@@ -1,6 +1,13 @@
 from django.contrib import admin
-from .models import Notes
+from .models import Notes, NotesGroups
 
 # Register your models here.
 
-admin.site.register(Notes)
+class NotesAdmin(admin.ModelAdmin):
+  readonly_fields = ('date_create',)
+
+class NotesGroupsAdmin(admin.ModelAdmin):
+  readonly_fields = ('date_create',)
+
+admin.site.register(Notes, NotesAdmin)
+admin.site.register(NotesGroups, NotesGroupsAdmin)
