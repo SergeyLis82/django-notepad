@@ -65,6 +65,10 @@ main .features {
 main .features h1 {font-size: 30px; margin-left: 10px;}
 main .features p {max-width: 900px; margin: 10px auto;}
 
+main .features select {
+    width: 90%
+}
+
 .alert-warning {
     float: left;
     clear: both;

@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Notes
-from .forms import NotesForm
+from ..models import Notes
+from ..forms import NotesForm
 from django.utils import timezone
 
 # Create your views here.

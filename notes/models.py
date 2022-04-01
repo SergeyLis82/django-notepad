@@ -5,10 +5,10 @@ from django.db import models
 class Notes(models.Model):
     title = models.CharField('Заголовок', max_length=100)
     preview = models.CharField('Превью', max_length=250)
-    full_text = models.TextField('Текст')
+    full_text = models.TextField('Текст', blank=True)
     date_create = models.DateTimeField('Дата создания', auto_now_add=True)
     date_update = models.DateTimeField('Дата обновления', null=True, blank=True)
-    group_id = models.IntegerField()
+    group_name = models.ForeignKey('NotesGroups', on_delete=models.SET_DEFAULT, default='no_group', verbose_name="Группа")
 
     def __str__(self):
         return self.title
