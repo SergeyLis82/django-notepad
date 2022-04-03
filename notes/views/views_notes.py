@@ -32,7 +32,7 @@ def add_note(request):
             'form': form,
             'error': error}
 
-    return render(request, 'notes/add_note.html', data)
+    return render(request, 'notes/edit_note.html', data)
 
 def detail(request, note_id):
     note = get_object_or_404(Notes, pk=note_id)

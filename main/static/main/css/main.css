@@ -13,6 +13,8 @@ html, body {
     float: left;
     width: 227px;
     height: 100%;
+    position: fixed;
+    overflow-x: hidden;
     background-color: #404252;
     border-right: 3px solid transparent;
     border-image: linear-gradient(to bottom, #6600cc 0%, #990099 100%);
@@ -93,6 +95,7 @@ main .features {
     color: rgb(49, 49, 49);
     /*margin-top: 50px;*/
     padding-top: 20px;
+    padding-bottom: 20px;
     text-align: left;
     width: 970px;
     border: 0px solid;
@@ -112,7 +115,7 @@ main .features p {max-width: 900px; margin: 10px auto;}
 .heading h3 {
     margin: 0;
     float: left;
-    padding-right: 640px;
+    /*padding-right: 640px;*/
     /*padding: 0 10px;*/
 }
 
@@ -160,7 +163,7 @@ main .features p {max-width: 900px; margin: 10px auto;}
 .card-text-secondary {
     font-size: 16px;
     font-weight: 100;
-    padding-left: 640px;
+    padding-left: 620px;
     color: #404252;
 }
 
