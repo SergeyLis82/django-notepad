@@ -3,21 +3,24 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-  <a href="{% url 'notes:add_note' %}"><button class="btn btn-info" style="margin: 0px 0px 5px 0px;"><i class="fa fa-plus-circle"></i>Добавить заметку</button></a>
+  <div class="heading">
+    <h3>{{ heading }}</h3>
+    <a href="{% url 'notes:add_note' %}"><button class="btn"><i class="fa fa-plus-circle"></i> Добавить заметку</button></a>
+  </div>
   {% if notes %}
   {% for note in notes %}
-    <div class="card"  style="margin: 0px 0px 5px 0px;">
-      <div class="card-header bg-secondary bg-gradient mb-3">
-        <a href="{% url 'notes:detail' note.id %}" style="text-decoration: none;">
-          <h5 class="text-light">{{ note.title }}</h5>
+    <div class="card">
+      <div class="card-header">
+        <a href="{% url 'notes:detail' note.id %}">
+          <span class="card-header-text">{{ note.title }}</span>
         </a>
       </div>
       <div class="card-body">
         <p class="card-text">{{ note.preview|linebreaksbr }}</p>
         {% if note.date_update %}
-        <p class="text-secondary text-opacity-75">Обновлено: {{ note.date_update }}</p>
+        <p class="card-text-secondary">Обновлено: {{ note.date_update }}</p>
         {% else %}
-        <p class="text-secondary text-opacity-75">Создано: {{ note.date_create }}</p>
+        <p class="card-text-secondary">Создано: {{ note.date_create }}</p>
         {% endif %}
       </div>
     </div>

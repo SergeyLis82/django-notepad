@@ -1,72 +1,167 @@
-body {
-    background: #2c2c2c2c;
-}
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;600;900&display=swap');
 
-aside {
-    background: #181818;
-    width: 20%;
+html, body {
     height: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    padding: 2.5%;
-    overflow-x: hidden;
-    color: #fff;
-    border-right: 5px solid #4d4d4d;
+    font-family: 'Titillium Web', sans-serif;
+    /*background-color: #2c2c2c2c;*/
+    background-color: #5B5D6B;
+    /*background-color: #D2D4DA;*/
+    margin: 0 auto;
 }
 
-aside img {
-    width: 80px;
+.wrapper {
     float: left;
+    width: 227px;
+    height: 100%;
+    background-color: #404252;
+    border-right: 3px solid transparent;
+    border-image: linear-gradient(to bottom, #6600cc 0%, #990099 100%);
+    border-image-slice: 1;
 }
 
-aside .logo {
-    font-size: 20px;
-    margin-left: 10px;
-    font-weight: bold;
-    position: relative;
-    top: 20px;
+.logo img{
+    width: 150px;
+    margin: 0 40px;
+    /*border: 1px solid green;*/
+}
+.headermenu h3 {
+    padding: 0 10px;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    /*border: 1px solid green;*/
+}
+.menu {
+    padding: 0 10px;
+    /*border: 1px solid red;*/
 }
 
-aside h3 {
-    margin-top: 75px;
-    font-size: 25px;
+.menuItem {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 100;
+    text-align: center;
+    list-style: none;
+    padding: 0 10px;
+    /*border: 1px solid green;*/
 }
 
-aside ul {list-style: none;}
-aside ul li {
-    color: #fff;
-    display: block;
-    margin-top: 20px;
-    transition: transform .6s ease;
+.menuItem .entry {
+    padding-left: 30px;
 }
 
-aside ul a {
+.menuItem:hover {
+    font-size: 18px;
+    border: 0px solid #777986;
+    background-color: #777986;
+    border-radius: 6px;
+}
+
+.menuItem a {
+    display: flex;
+    align-items: center;
+    height: 100%;
     text-decoration: none;
+    color: #B3B5BD;
 }
 
-aside ul li:hover, aside ul a:hover {
-    color: #eb5959;
+.menuItem a:hover {
     text-decoration: none;
-    transform: scale(1.05);
+    color: #D2D4DA;
+    /*border: 1px solid olive;*/
 }
+
+.btn {
+    background-color: #990099;
+    border: 0px solid;
+    border-radius: 6px;
+    padding: 7px 9px;
+    color: #D2D4DA;
+}
+
+.btn:hover {
+    background-color: #8f008f;
+    cursor: pointer;
+}
+
 
 main {
-    margin-left: 22%;
+    margin-left: 230px;
+    
 }
 main .features {
     color: rgb(49, 49, 49);
-    margin-top: 50px;
+    /*margin-top: 50px;*/
+    padding-top: 20px;
     text-align: left;
-    width: 90%;
+    width: 970px;
+    border: 0px solid;
 }
 
 main .features h1 {font-size: 30px; margin-left: 10px;}
 main .features p {max-width: 900px; margin: 10px auto;}
 
-main .features select {
-    width: 90%
+.heading {
+    padding: 8px 15px;
+    margin: 10px 15px;
+    border: 0px solid;
+    border-radius: 6px;
+    background: linear-gradient(to bottom, #B3B5BD 0%, #9496A1 100%);
+}
+
+.heading h3 {
+    margin: 0;
+    float: left;
+    padding-right: 640px;
+    /*padding: 0 10px;*/
+}
+
+.card {
+    padding: 8px 15px;
+    margin: 10px 15px;
+    /*border: 1px solid yellowgreen;*/
+    border-radius: 6px;
+    background: linear-gradient(to bottom, #B3B5BD 0%, #9496A1 100%);
+}
+
+.card-header {
+    margin: 0 20px;
+    /*border: 1px solid yellowgreen;*/
+}
+
+.card-header a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.card-header-text {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #404252;
+}
+
+.card-body {
+    margin: 0 15px;
+    padding: 0;
+    /*border: 1px solid yellowgreen;*/
+}
+
+.card-text {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 400;
+    color: #404252;
+}
+
+.card-text-secondary {
+    font-size: 16px;
+    font-weight: 100;
+    padding-left: 640px;
+    color: #404252;
 }
 
 .alert-warning {

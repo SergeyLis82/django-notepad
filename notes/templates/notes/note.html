@@ -3,20 +3,22 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
+  <div class="heading">
+    <h3 style="padding-right: 580px;">{{ heading }}</h3>
+    <a href="{% url 'notes:edit_note' note.id %}"><button class="btn">Редактировать</button></a>
+    <a href="{% url 'notes:delete_note' note.id %}"><button class="btn">Удалить</button></a>
+  </div>
   {% if note %}
     <div class="card">
       <div class="card-header">
-        <h5>{{ note.preview }}</h5>
-        <a href="{% url 'notes:edit_note' note.id %}" style="text-decoration: none;" class="text-secondary">Редактировать</a>
-        |
-        <a href="{% url 'notes:delete_note' note.id %}" style="text-decoration: none;" class="text-secondary">Удалить</a>
+        <span class="card-header-text">{{ note.preview }}</span>
       </div>
       <div class="card-body">
         <p class="card-text">{{ note.full_text|linebreaksbr }}</p>
         {% if note.date_update %}
-        <p class="card-text">Создано: {{ note.date_create }} | Обновлено: {{ note.date_update }}</p>
+        <p class="card-text-secondary">Создано: {{ note.date_create }} | Обновлено: {{ note.date_update }}</p>
         {% else %}
-        <p class="card-text">Создано: {{ note.date_create }}</p>
+        <p class="card-text-secondary">Создано: {{ note.date_create }}</p>
         {% endif %}
       </div>
     </div>
