@@ -38,7 +38,7 @@ def detail(request, note_id):
     note = get_object_or_404(Notes, pk=note_id)
     data = {
     "title": "Note",
-    "heading": f'Заметка - {note.title}',
+    "heading": f'{note.group_name} - {note.title}',
     'note': note,
     }
     return render(request, 'notes/note.html', data)
