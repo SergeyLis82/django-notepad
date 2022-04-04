@@ -118,6 +118,68 @@ main .features p {max-width: 900px; margin: 10px auto;}
     /*padding-right: 640px;*/
     /*padding: 0 10px;*/
 }
+/* ==== Стиль формы добавления и редактирования заметки ==== */
+.headingForm {
+    padding: 8px 15px;
+    margin: 10px 15px;
+    border: 0px solid;
+    border-radius: 6px;
+    background: linear-gradient(to bottom, #B3B5BD 0%, #9496A1 100%);
+}
+
+.headingForm h3 {
+    margin: 0;
+}
+
+.noteForm {
+    padding: 8px 15px;
+    margin: 10px 15px;
+    /*border: 1px solid yellowgreen;*/
+    border-radius: 6px;
+    background: linear-gradient(to bottom, #B3B5BD 0%, #9496A1 100%);
+}
+
+.noteForm p {
+    margin: 0;
+    padding: 0;
+    /*border: 1px solid yellowgreen;*/
+}
+
+.noteForm p label {
+    margin: 0;
+    display: block;
+    width: 100px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    /*border: 1px solid yellowgreen;*/
+}
+
+.noteForm p select option {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.noteForm p input, select, textarea {
+    margin: 0;
+    width: 600px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    border: 2px solid #990099;
+    border-radius: 6px;
+}
+
+.noteForm p input:focus, select:focus, textarea:focus {
+    border: 2px solid yellowgreen;
+}
+
+.noteForm p textarea {
+    max-width: 820px;
+    min-width: 600px;
+}
+/* ========================================================= */
 
 .card {
     padding: 8px 15px;
@@ -175,8 +237,8 @@ main .features p {max-width: 900px; margin: 10px auto;}
     text-align: left;
 }
 
-form {
+/*form {
     margin-left: 2%;
     width: 90%;
     margin-top: 30px;
-}
+}*/

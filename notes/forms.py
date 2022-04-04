@@ -9,14 +9,11 @@ class NotesForm(ModelForm):
 
         widgets = {
             'title': TextInput(attrs={
-                'placeholder': "Заголовок",
                 'class': 'form-control'
             }),
             'preview': TextInput(attrs={
-                'placeholder': "Превью",
                 'class': 'form-control'
             }),
             'full_text': Textarea(attrs={
-                'placeholder': "Текст",
                 'class': 'form-control'})
         }

@@ -3,8 +3,10 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-  <h3>{{ heading }}</h3>
-  <form method="POST">
+  <div class="headingForm">
+    <h3>{{ heading }}</h3>
+  </div>
+  <form method="POST" class="noteForm">
       {% csrf_token %}
       {{ form.as_p }}
       <!--
@@ -15,6 +17,6 @@
       <input type="time" class="form-control"><br>
       -->
       <span>{{ error }}</span>
-      <button class="btn" type="submit"><i class="fas fa-save"></i> Сохранить</button>
+      <button class="btn" style="margin-left: 510px" type="submit"><i class="fas fa-save"></i> Сохранить</button>
   </form>  
 {% endblock %}
