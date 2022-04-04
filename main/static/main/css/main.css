@@ -220,6 +220,7 @@ main .features p {max-width: 900px; margin: 10px auto;}
     font-size: 18px;
     font-weight: 400;
     color: #404252;
+    white-space: pre-wrap;
 }
 
 .card-text-secondary {
