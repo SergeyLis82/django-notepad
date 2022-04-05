@@ -32,7 +32,7 @@ def add_note(request):
             'form': form,
             'error': error}
 
-    return render(request, 'notes/edit_note.html', data)
+    return render(request, 'notes/note_edit.html', data)
 
 def detail(request, note_id):
     note = get_object_or_404(Notes, pk=note_id)
@@ -55,7 +55,7 @@ def edit_note(request, note_id):
                 'form': form,
                 'error': error
                 }
-        return render(request, 'notes/edit_note.html', data)
+        return render(request, 'notes/note_edit.html', data)
     # Обработка метода POST
     else:
         form = NotesForm(request.POST, instance=note)

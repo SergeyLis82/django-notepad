@@ -17,3 +17,16 @@ class NotesForm(ModelForm):
             'full_text': Textarea(attrs={
                 'class': 'form-control'})
         }
+        
+class NotesGroupsForms(ModelForm):
+    class Meta:
+        model = NotesGroups
+        fields = ['groupname', 'groupdescription']
+        widgets = {
+            'groupname': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'groupdescription': TextInput(attrs={
+                'class': 'form-control'
+            }),
+        }
