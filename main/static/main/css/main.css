@@ -148,7 +148,7 @@ main .features p {max-width: 900px; margin: 10px auto;}
 .noteForm p label {
     margin: 0;
     display: block;
-    width: 100px;
+    width: 200px;
     font-family: 'Titillium Web', sans-serif;
     font-size: 18px;
     font-weight: 100;

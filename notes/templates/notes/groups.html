@@ -5,7 +5,7 @@
 {% block content %}
   <div class="heading">
     <h3 style="width: 750px;">{{ heading }}</h3>
-    <a href="#"><button class="btn"><i class="fa fa-plus-circle"></i> Добавить группу</button></a>
+    <a href="{% url 'notes:add_group' %}"><button class="btn"><i class="fa fa-plus-circle"></i> Добавить группу</button></a>
   </div>
   {% if groups %}
   {% for group in groups %}
