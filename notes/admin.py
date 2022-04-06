@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Notes, NotesGroups
+from .models import Notes
+from groups.models import NotesGroups
 
 # Register your models here.
 

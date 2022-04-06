@@ -5,13 +5,13 @@
 {% block content %}
   <div class="heading">
     <h3 style="width: 750px;">{{ heading }}</h3>
-    <a href="{% url 'notes:add_group' %}"><button class="btn"><i class="fa fa-plus-circle"></i> Добавить группу</button></a>
+    <a href="{% url 'groups:add_group' %}"><button class="btn"><i class="fa fa-plus-circle"></i> Добавить группу</button></a>
   </div>
   {% if groups %}
   {% for group in groups %}
     <div class="card">
       <div class="card-header">
-        <a href="{% url 'notes:group_detail' group.id %}">
+        <a href="{% url 'groups:group_detail' group.id %}">
           <span class="card-header-text">{{ group.groupname }}</span>
         </a>
       </div>
@@ -26,6 +26,6 @@
     </div>
   {% endfor %}
   {% else %}
-    <h2>Заметок пока нет</h2>
+    <h2>Групп пока нет</h2>
   {% endif %}
 {% endblock %}

@@ -5,10 +5,10 @@
 {% block content %}
   <div class="heading">
     <h3 style="width: 680px;">{{ heading }}</h3>
-    <a href="{% url 'notes:edit_group' group.id %}">
+    <a href="{% url 'groups:edit_group' group.id %}">
       <button class="btn"><i class="fas fa-edit"></i> Редактировать</button>
     </a>
-    <a href="{% url 'notes:delete_group' group.id %}">
+    <a href="{% url 'groups:delete_group' group.id %}">
       <button class="btn"><i class="fas fa-trash-alt"></i> Удалить</button>
     </a>
   </div>

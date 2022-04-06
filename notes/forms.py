@@ -1,5 +1,6 @@
-from .models import Notes, NotesGroups
-from django.forms import ChoiceField, ModelForm, TextInput, DateTimeInput, Textarea, ModelChoiceField
+from .models import Notes
+from groups.models import NotesGroups
+from django.forms import ModelForm, TextInput, Textarea, ModelChoiceField
 
 class NotesForm(ModelForm):
     class Meta:

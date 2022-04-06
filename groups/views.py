@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from ..models import NotesGroups
-from ..forms import NotesGroupsForms
+from .models import NotesGroups
+from .forms import NotesGroupsForms
 from django.utils import timezone
 
 def view_groups(request):
@@ -10,7 +10,7 @@ def view_groups(request):
     "heading": "Мои группы",
     'groups': groups
     }
-    return render(request, 'notes/groups.html', data)
+    return render(request, 'groups/groups.html', data)
 
 def detail(request, group_id):
     group = get_object_or_404(NotesGroups, pk=group_id)
@@ -19,7 +19,7 @@ def detail(request, group_id):
     "heading": f'{group.groupname}',
     'group': group,
     }
-    return render(request, 'notes/group.html', data)
+    return render(request, 'groups/group.html', data)
 
 def add_group(request):
     error = ''
@@ -27,7 +27,7 @@ def add_group(request):
         form = NotesGroupsForms(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('notes:view_groups')
+            return redirect('groups:view_groups')
         else:
             error = "Форма заполнена неверно"
 
@@ -38,7 +38,7 @@ def add_group(request):
             'form': form,
             'error': error}
 
-    return render(request, 'notes/group_edit.html', data)
+    return render(request, 'groups/group_edit.html', data)
 
 def edit_group(request, group_id):
     group = get_object_or_404(NotesGroups, pk=group_id)
@@ -52,18 +52,18 @@ def edit_group(request, group_id):
                 'form': form,
                 'error': error
                 }
-        return render(request, 'notes/group_edit.html', data)
+        return render(request, 'groups/group_edit.html', data)
     # Обработка метода POST
     else:
         form = NotesGroupsForms(request.POST, instance=group)
         if form.is_valid():
             group.date_update = timezone.now()
             form.save()
-            return redirect('notes:view_groups')
+            return redirect('groups:view_groups')
         else:
             error = "Форма заполнена неверно"
 
 def delete_group(request, group_id):
     group = get_object_or_404(NotesGroups, pk=group_id)
     group.delete()
-    return redirect('notes:view_groups')
+    return redirect('groups:view_groups')

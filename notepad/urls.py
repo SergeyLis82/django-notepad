@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('notes/', include('notes.urls')),
-    path('groups/', include('notes.urls')),
+    path('groups/', include('groups.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
