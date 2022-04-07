@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import NotesGroups
 from .forms import NotesGroupsForms
+from notes.models import Notes
 from django.utils import timezone
 
 def view_groups(request):
@@ -8,7 +9,7 @@ def view_groups(request):
     data = {
     "title": "Groups",
     "heading": "Мои группы",
-    'groups': groups
+    'groups': groups,
     }
     return render(request, 'groups/groups.html', data)
 

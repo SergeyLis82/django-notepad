@@ -1,4 +1,5 @@
 from django.db import models
+from notes.models import Notes
 
 # Create your models here.
 class NotesGroups(models.Model):
@@ -10,6 +11,11 @@ class NotesGroups(models.Model):
     def __str__(self):
         return self.groupname
     
+    def calculateNotes(self):
+        return Notes.objects.filter(group_name=self).count()
+    
+    countNotes = property(calculateNotes)
+
     class Meta:
         verbose_name = 'Группа'
         verbose_name_plural = 'Группы'
