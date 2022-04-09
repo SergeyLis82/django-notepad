@@ -4,7 +4,7 @@
 
 {% block content %}
   <div class="heading">
-    <h3 style="width: 750px;">{{ heading }}</h3>
+    <h3 style="width: 750px; margin-left: 15px;">{{ heading }}</h3>
     <a href="{% url 'notes:add_note' %}"><button class="btn"><i class="fa fa-plus-circle"></i> Добавить заметку</button></a>
   </div>
   {% if notes %}
