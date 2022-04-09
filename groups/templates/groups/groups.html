@@ -17,7 +17,7 @@
       </div>
       <div class="card-body">
         <p class="card-text">{{ group.groupdescription|linebreaksbr }}</p>
-        <p class="card-text">Заметок в группе: {{ group.countNotes }}</p>
+        <a href="{% url 'groups:view_group_notes' group.id %}"><p class="card-text">Заметок в группе: {{ group.countNotes }}</p></a>
         {% if group.date_update %}
         <p class="card-text-secondary">Обновлено: {{ group.date_update }}</p>
         {% else %}

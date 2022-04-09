@@ -5,6 +5,7 @@ app_name = 'groups'
 
 urlpatterns = [
     path('', view_groups, name='view_groups'),
+    path('<int:group_id>/notes/', view_group_notes, name='view_group_notes'),
     path('<int:group_id>/', detail, name='group_detail'),
     path('add_group/', add_group, name='add_group'),
     path('<int:group_id>/edit/', edit_group, name='edit_group'),
