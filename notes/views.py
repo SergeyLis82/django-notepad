@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Notes
-from .forms import NotesForm
+from .forms import NotesForm, NoteEditForm
 from django.utils import timezone
 
 # Create your views here.
@@ -15,6 +15,7 @@ def view_notes(request):
     return render(request, 'notes/notes.html', data)
 
 def add_note(request):
+    post_form= NoteEditForm(request.POST)
     error = ''
     if request.method == 'POST':
         form = NotesForm(request.POST)
@@ -29,7 +30,8 @@ def add_note(request):
     data = {"title": "New note",
             "heading": "Добавление новой заметки",
             'form': form,
-            'error': error}
+            'error': error,
+            'post_form' : post_form,}
 
     return render(request, 'notes/note_edit.html', data)
 
@@ -43,6 +45,7 @@ def detail(request, note_id):
     return render(request, 'notes/note.html', data)
 
 def edit_note(request, note_id):
+    post_form= NoteEditForm(request.POST)
     note = get_object_or_404(Notes, pk=note_id)
     error = ''
     # Обработка метода GET
@@ -52,7 +55,8 @@ def edit_note(request, note_id):
                 "heading": f"Изменение заметки - {note.title}",
                 'note': note,
                 'form': form,
-                'error': error
+                'error': error,
+                'post_form' : post_form,
                 }
         return render(request, 'notes/note_edit.html', data)
     # Обработка метода POST

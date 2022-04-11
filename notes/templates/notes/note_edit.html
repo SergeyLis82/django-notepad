@@ -11,6 +11,7 @@
   </div>
   <form method="POST" class="noteForm">
       {% csrf_token %}
+      {{ post_form.media }}
       {{ form.as_p }}
       <!--
       <input type="text" placeholder="Заголовок" class="form-control"><br>
