@@ -14,7 +14,7 @@ def view_groups(request):
     return render(request, 'groups/groups.html', data)
 
 def view_group_notes(request, group_id):
-    notes = Notes.objects.filter(group_name=group_id)
+    notes = Notes.objects.filter(group_name=group_id).order_by('-date_create')
     data = {
     "title": "Notes",
     "heading": "Мои заметки",
