@@ -8,7 +8,7 @@ class Notes(models.Model):
     full_text = RichTextField('Текст', blank=True, null=True)
     date_create = models.DateTimeField('Дата создания', auto_now_add=True)
     date_update = models.DateTimeField('Дата обновления', null=True, blank=True)
-    group_name = models.ForeignKey('groups.NotesGroups', on_delete=models.SET_DEFAULT, default=4, verbose_name="Группа")
+    group_name = models.ForeignKey('groups.NotesGroups', on_delete=models.SET_DEFAULT, default=1, verbose_name="Группа")
 
     def __str__(self):
         return self.title
