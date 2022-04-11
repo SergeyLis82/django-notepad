@@ -65,7 +65,7 @@ def edit_note(request, note_id):
         if form.is_valid():
             note.date_update = timezone.now()
             form.save()
-            return redirect('notes:view_notes')
+            return redirect('notes:detail', note_id)
         else:
             error = "Форма заполнена неверно"
 
