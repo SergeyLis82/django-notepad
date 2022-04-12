@@ -21,7 +21,7 @@
         <span class="card-header-text">{{ note.preview }}</span>
       </div>
       <div class="card-body">
-        <p class="card-text">{{ note.full_text|linebreaksbr }}</p>
+        <p class="card-text">{{ note.full_text|safe }}</p>
         {% if note.date_update %}
         <p class="card-text-secondary">Создано: {{ note.date_create }}</p>
         <p class="card-text-secondary">Обновлено: {{ note.date_update }}</p>
