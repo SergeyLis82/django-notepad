@@ -14,6 +14,8 @@ class NotesGroups(models.Model):
     def calculateNotes(self):
         return Notes.objects.filter(group_name=self).count()
     
+    calculateNotes.short_description = 'Количество заметок'
+    
     countNotes = property(calculateNotes)
 
     class Meta:
