@@ -237,8 +237,9 @@ main .features p {max-width: 900px; margin: 10px auto;}
 .card-text-secondary {
     font-size: 16px;
     font-weight: 100;
-    padding-left: 620px;
+    padding-left: 475px;
     color: #404252;
+    text-decoration: none;
 }
 
 .alert-warning {

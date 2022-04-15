@@ -11,18 +11,22 @@
   {% for group in groups %}
     <div class="card">
       <div class="card-header">
-        <a href="{% url 'groups:group_detail' group.id %}">
+        <!--<a href="{% url 'groups:group_detail' group.id %}">
           <span class="card-header-text">{{ group.groupname }}</span>
+        </a>-->
+        <a href="{% url 'groups:view_group_notes' group.id %}">
+          <span class="card-header-text">{{ group.groupname }}</span> <span class="card-text">(Заметок: {{ group.countNotes }})</span>
         </a>
       </div>
       <div class="card-body">
         <p class="card-text">{{ group.groupdescription|linebreaksbr }}</p>
-        <a href="{% url 'groups:view_group_notes' group.id %}"><p class="card-text">Заметок в группе: {{ group.countNotes }}</p></a>
+        <!--<a href="{% url 'groups:view_group_notes' group.id %}"><p class="card-text">Заметок в группе: {{ group.countNotes }}</p></a>-->
         {% if group.date_update %}
-        <p class="card-text-secondary">Обновлено: {{ group.date_update }}</p>
+        <p class="card-text-secondary">Обновлено: {{ group.date_update }}
         {% else %}
-        <p class="card-text-secondary">Создано: {{ group.date_create }}</p>
+        <p class="card-text-secondary">Создано: {{ group.date_create }}
         {% endif %}
+        | <a class="card-text" href="{% url 'groups:group_detail' group.id %}">Редактировать</a></p>
       </div>
     </div>
   {% endfor %}
