@@ -1,4 +1,0 @@
-
-https://django-ckeditor.readthedocs.io/en/latest/
-
-test string
