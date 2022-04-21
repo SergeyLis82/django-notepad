@@ -1,6 +1,6 @@
 {% extends 'main/_layout.html' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}{{ title }} - {{note.title}}{% endblock %}
 
 {% block content %}
   <div class="heading">
@@ -22,11 +22,9 @@
       </div>
       <div class="card-body">
         <p class="card-text">{{ note.full_text|safe }}</p>
+        <p class="card-text-secondary">Создано: {{ note.date_create }}</p>
         {% if note.date_update %}
-        <p class="card-text-secondary">Создано: {{ note.date_create }}</p>
         <p class="card-text-secondary">Обновлено: {{ note.date_update }}</p>
-        {% else %}
-        <p class="card-text-secondary">Создано: {{ note.date_create }}</p>
         {% endif %}
       </div>
     </div>
