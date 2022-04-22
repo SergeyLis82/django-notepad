@@ -11,7 +11,7 @@
     <a href="{% url 'groups:edit_group' group.id %}">
       <button class="btn"><i class="fas fa-edit"></i> Редактировать</button>
     </a>
-    <a href="{% url 'groups:delete_group' group.id %}">
+    <a href="{% url 'groups:delete_group' group.id %}" onclick="return confirmDelete('группу');">
       <button class="btn"><i class="fas fa-trash-alt"></i> Удалить</button>
     </a>
   </div>

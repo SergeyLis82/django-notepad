@@ -11,7 +11,7 @@
     <a href="{% url 'notes:edit_note' note.id %}">
       <button class="btn"><i class="fas fa-edit"></i> Редактировать</button>
     </a>
-    <a href="{% url 'notes:delete_note' note.id %}" onclick="return confirmDelete();">
+    <a href="{% url 'notes:delete_note' note.id %}" onclick="return confirmDelete('заметку');">
       <button class="btn"><i class="fas fa-trash-alt"></i> Удалить</button>
     </a>
   </div>
