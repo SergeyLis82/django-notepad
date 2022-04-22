@@ -4,14 +4,14 @@
 
 {% block content %}
   <div class="heading">
-    <a href="javascript:history.go(-1)">
+    <a href="{% url 'groups:view_groups' %}">
       <button class="btn btn-back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
     </a>
     <h3 style="width: 665px;">{{ heading }}</h3>
     <a href="{% url 'notes:edit_note' note.id %}">
       <button class="btn"><i class="fas fa-edit"></i> Редактировать</button>
     </a>
-    <a href="{% url 'notes:delete_note' note.id %}">
+    <a href="{% url 'notes:delete_note' note.id %}" onclick="return confirmDelete();">
       <button class="btn"><i class="fas fa-trash-alt"></i> Удалить</button>
     </a>
   </div>

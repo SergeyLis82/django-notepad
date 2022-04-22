@@ -4,7 +4,7 @@
 
 {% block content %}
   <div class="heading">
-    <a href="javascript:history.go(-1)">
+    <a href="{% url 'groups:view_groups' %}">
       <button class="btn btn-back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
     </a>
     <h3 style="width: 665px;">{{ heading }}</h3>
