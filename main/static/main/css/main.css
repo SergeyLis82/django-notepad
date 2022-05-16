@@ -49,6 +49,8 @@ html, body {
 }
 
 .menuItem .entry {
+    font-family: 'SF UI Display Heavy';
+    font-size: 25px;
     padding-left: 30px;
 }
 
@@ -255,3 +257,13 @@ main .features p {max-width: 900px; margin: 10px auto;}
     width: 90%;
     margin-top: 30px;
 }*/
+
+@font-face {
+    font-family: 'PT Sans Bold Italic';
+    src: url("/static/main/fonts/PT_Sans_Bold_Italic.ttf");
+}
+
+@font-face {
+    font-family: 'SF UI Display Heavy';
+    src: url('/static/main/fonts/SF-UI-Display-Heavy.otf');
+    }

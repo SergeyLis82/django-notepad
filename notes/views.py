@@ -72,5 +72,6 @@ def edit_note(request, note_id):
 def delete_note(request, note_id):
     note = get_object_or_404(Notes, pk=note_id)
     note.delete()
-    return redirect('notes:view_notes')
+    #return redirect('notes:view_notes')
+    return redirect('groups:view_groups')
     #return HttpResponseRedirect(notes_url)

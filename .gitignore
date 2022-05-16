@@ -4,3 +4,4 @@ __pycache__
 *.sql
 db.sqlite3
 /static
+/todo/main

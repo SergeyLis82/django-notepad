@@ -4,10 +4,14 @@
 
 {% block content %}
   <div class="headingForm">
-    <a href="javascript:history.go(-1)">
+    {% if note %}
+    <a href="{% url 'notes:detail' note.id %}">
       <button class="btn btn-back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
     </a>
     <h3>{{ heading }}</h3>
+    {% else %}
+    <h3 style="margin-left: 10px">{{ heading }}</h3>
+    {% endif %}
   </div>
   <form method="POST" class="noteForm">
       {% csrf_token %}

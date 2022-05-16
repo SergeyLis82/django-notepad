@@ -1,17 +1,17 @@
 {% extends 'main/_layout.html' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}{{ title }} - {{group.groupname}}{% endblock %}
 
 {% block content %}
   <div class="heading">
-    <a href="javascript:history.go(-1)">
+    <a href="{% url 'groups:view_groups' %}">
       <button class="btn btn-back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
     </a>
     <h3 style="width: 665px;">{{ heading }}</h3>
     <a href="{% url 'groups:edit_group' group.id %}">
       <button class="btn"><i class="fas fa-edit"></i> Редактировать</button>
     </a>
-    <a href="{% url 'groups:delete_group' group.id %}">
+    <a href="{% url 'groups:delete_group' group.id %}" onclick="return confirmDelete('группу');">
       <button class="btn"><i class="fas fa-trash-alt"></i> Удалить</button>
     </a>
   </div>
@@ -22,11 +22,9 @@
       </div>
       <div class="card-body">
         <p class="card-text">{{ group.groupdescription|linebreaksbr }}</p>
+        <p class="card-text-secondary">Создано: {{ group.date_create }}</p>
         {% if group.date_update %}
-        <p class="card-text-secondary">Создано: {{ group.date_create }}</p>
         <p class="card-text-secondary">Обновлено: {{ group.date_update }}</p>
-        {% else %}
-        <p class="card-text-secondary">Создано: {{ group.date_create }}</p>
         {% endif %}
       </div>
     </div>
