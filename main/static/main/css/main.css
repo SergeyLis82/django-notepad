@@ -23,7 +23,7 @@ html, body {
 
 .logo img{
     width: 150px;
-    margin: 0 40px;
+    margin: 20px 40px 0px 40px;
     /*border: 1px solid green;*/
 }
 .headermenu h3 {
