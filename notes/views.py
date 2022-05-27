@@ -6,7 +6,7 @@ from django.utils import timezone
 # Create your views here.
 
 def view_notes(request):
-    notes = Notes.objects.order_by('-date_create')
+    notes = Notes.objects.order_by('date_create', 'date_update')
     data = {
     "title": "Notes",
     "heading": "Мои заметки",
