@@ -41,6 +41,11 @@ html, body {
     padding: 0 10px;
     /*border: 1px solid green;*/
 }
+
+.user-panel .btn {
+    margin: 0px 10px;
+}
+
 .username {
     float: left;
     font-size: 22px;
@@ -50,7 +55,6 @@ html, body {
 
 .form-logout {
     float: left;
-    margin: 0px 10px;
 }
 
 .wrapper {

@@ -25,14 +25,16 @@
       </form>
     </div>
     {% else %}
-    <a href="{% url 'main:loginuser' %}" class="btn">
-      <i class="fas fa-sign-in-alt"></i>
-      <span class="entry">Войти</span>
-    </a>
-    <a href="{% url 'main:signupuser' %}" class="btn">
-      <i class="fas fa-user-plus"></i>
-      <span class="entry">Регистрация</span>
-    </a>
+    <div class="user-panel">
+      <a href="{% url 'main:loginuser' %}" class="btn">
+        <i class="fas fa-sign-in-alt"></i>
+        <span class="entry">Войти</span>
+      </a>
+      <a href="{% url 'main:signupuser' %}" class="btn">
+        <i class="fas fa-user-plus"></i>
+        <span class="entry">Регистрация</span>
+      </a>
+    </div>
     {% endif %}
   </div>
   <div class="wrapper">
