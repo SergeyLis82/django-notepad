@@ -6,7 +6,7 @@ from django.utils import timezone
 # Create your views here.
 
 def view_notes(request):
-    notes = Notes.objects.order_by('date_create', 'date_update')
+    notes = Notes.objects.filter(note_owner=request.user).order_by('date_create', 'date_update')
     data = {
     "title": "Notes",
     "heading": "Мои заметки",
@@ -20,7 +20,9 @@ def add_note(request):
     if request.method == 'POST':
         form = NotesForm(request.POST)
         if form.is_valid():
-            form.save()
+            newnote = form.save(commit=False)
+            newnote.note_owner = request.user
+            newnote.save()
             return redirect('notes:view_notes')
         else:
             error = "Форма заполнена неверно"
@@ -64,7 +66,9 @@ def edit_note(request, note_id):
         form = NotesForm(request.POST, instance=note)
         if form.is_valid():
             note.date_update = timezone.now()
-            form.save()
+            editnote = form.save(commit=False)
+            editnote.note_owner = request.user
+            editnote.save()
             return redirect('notes:detail', note_id)
         else:
             error = "Форма заполнена неверно"

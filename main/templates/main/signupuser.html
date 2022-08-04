@@ -1,0 +1,14 @@
+{% extends 'main/_layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h3>{{ heading }}</h3>
+    <p>{{ content|linebreaksbr }}</p>
+    <h2>{{ error }}</h2>
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" style="margin-left: 20px" type="submit"><i class="fas fa-user-plus"></i> Зарегистрировать</button>
+    </form>
+{% endblock %}

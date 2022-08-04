@@ -3,6 +3,7 @@
 {% block title %}{{ title }} - {{group.groupname}}{% endblock %}
 
 {% block content %}
+  {% if group %}
   <div class="heading">
     <a href="{% url 'groups:view_groups' %}">
       <button class="btn btn-back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
@@ -15,20 +16,24 @@
       <button class="btn"><i class="fas fa-trash-alt"></i> Удалить</button>
     </a>
   </div>
-  {% if group %}
-    <div class="card">
-      <div class="card-header">
-        <span class="card-header-text">{{ group.groupname }}</span>
-      </div>
-      <div class="card-body">
-        <p class="card-text">{{ group.groupdescription|linebreaksbr }}</p>
-        <p class="card-text-secondary">Создано: {{ group.date_create }}</p>
-        {% if group.date_update %}
-        <p class="card-text-secondary">Обновлено: {{ group.date_update }}</p>
-        {% endif %}
-      </div>
+  <div class="card">
+    <div class="card-header">
+      <span class="card-header-text">{{ group.groupname }}</span>
     </div>
+    <div class="card-body">
+      <p class="card-text">{{ group.groupdescription|linebreaksbr }}</p>
+      <p class="card-text-secondary">Создано: {{ group.date_create }}</p>
+      {% if group.date_update %}
+      <p class="card-text-secondary">Обновлено: {{ group.date_update }}</p>
+      {% endif %}
+    </div>
+  </div>
   {% else %}
-    <h3>Заметки нет</h3>
+  <div class="heading">
+    <a href="{% url 'groups:view_groups' %}">
+      <button class="btn btn-back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+    </a>
+    <h3 style="width: 665px;">Группы не существует</h3>
+  </div>
   {% endif %}
 {% endblock %}

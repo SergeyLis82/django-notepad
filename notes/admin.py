@@ -18,12 +18,12 @@ class NotesAdminForm(forms.ModelForm):
 class NotesAdmin(admin.ModelAdmin):
   readonly_fields = ('date_create',)
   form = NotesAdminForm
-  list_display = ("title", "preview", "group_name", "date_create", "date_update")
+  list_display = ("title", "preview", "group_name", "date_create", "date_update", "note_owner", "important")
   list_filter = ("group_name",)
 
 class NotesGroupsAdmin(admin.ModelAdmin):
   readonly_fields = ('date_create',)
-  list_display = ("groupname", "groupdescription", "countNotes", "date_create", "date_update")
+  list_display = ("groupname", "groupdescription", "group_owner", "countNotes", "date_create", "date_update")
 
 admin.site.register(Notes, NotesAdmin)
 admin.site.register(NotesGroups, NotesGroupsAdmin)
