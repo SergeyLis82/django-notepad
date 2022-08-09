@@ -6,13 +6,21 @@ from django.utils import timezone
 # Create your views here.
 
 def view_notes(request):
-    notes = Notes.objects.filter(note_owner=request.user).order_by('date_create', 'date_update')
-    data = {
-    "title": "Notes",
-    "heading": "Мои заметки",
-    'notes': notes
-    }
-    return render(request, 'notes/notes.html', data)
+    try:
+        notes = Notes.objects.filter(note_owner=request.user).order_by('date_create', 'date_update')
+        data = {
+        "title": "Notes",
+        "heading": "Мои заметки",
+        'notes': notes
+        }
+        return render(request, 'notes/notes.html', data)
+    except TypeError:
+        data = {
+        "title": "Notes",
+        "heading": "Not found",
+        "content": "Необходимо войти или зарегистрироваться"
+        }
+        return render(request, 'main/index.html', data)
 
 def add_note(request):
     post_form= NoteEditForm(request.POST)
@@ -39,43 +47,62 @@ def add_note(request):
 
 def detail(request, note_id):
     note = get_object_or_404(Notes, pk=note_id)
-    data = {
-    "title": "Note",
-    "heading": f'{note.group_name} - {note.title}',
-    'note': note,
-    }
-    return render(request, 'notes/note.html', data)
+    if note.note_owner == request.user:
+        data = {
+        "title": "Note",
+        "heading": f'{note.group_name} - {note.title}',
+        'note': note,
+        }
+        return render(request, 'notes/note.html', data)
+    else:
+        data = {
+        "title": "Note",
+        "heading": "Not found",
+        }
+        return render(request, 'notes/note.html', data)
 
 def edit_note(request, note_id):
     post_form= NoteEditForm(request.POST)
     note = get_object_or_404(Notes, pk=note_id)
-    error = ''
-    # Обработка метода GET
-    if request.method == 'GET':
-        form = NotesForm(instance=note)
-        data = {"title": "Update note",
-                "heading": f"Изменение заметки - {note.title}",
-                'note': note,
-                'form': form,
-                'error': error,
-                'post_form' : post_form,
-                }
-        return render(request, 'notes/note_edit.html', data)
-    # Обработка метода POST
-    else:
-        form = NotesForm(request.POST, instance=note)
-        if form.is_valid():
-            note.date_update = timezone.now()
-            editnote = form.save(commit=False)
-            editnote.note_owner = request.user
-            editnote.save()
-            return redirect('notes:detail', note_id)
+    if note.note_owner == request.user:
+        error = ''
+        # Обработка метода GET
+        if request.method == 'GET':
+            form = NotesForm(instance=note)
+            data = {"title": "Update note",
+                    "heading": f"Изменение заметки - {note.title}",
+                    'note': note,
+                    'form': form,
+                    'error': error,
+                    'post_form' : post_form,
+                    }
+            return render(request, 'notes/note_edit.html', data)
+        # Обработка метода POST
         else:
-            error = "Форма заполнена неверно"
+            form = NotesForm(request.POST, instance=note)
+            if form.is_valid():
+                note.date_update = timezone.now()
+                editnote = form.save(commit=False)
+                editnote.note_owner = request.user
+                editnote.save()
+                return redirect('notes:detail', note_id)
+            else:
+                error = "Форма заполнена неверно"
+    else:
+        data = {
+        "title": "Note",
+        "heading": "Not found",
+        }
+        return render(request, 'notes/note.html', data)
 
 def delete_note(request, note_id):
     note = get_object_or_404(Notes, pk=note_id)
-    note.delete()
-    #return redirect('notes:view_notes')
-    return redirect('groups:view_groups')
-    #return HttpResponseRedirect(notes_url)
+    if note.note_owner == request.user:
+        note.delete()
+        return redirect('groups:view_groups')
+    else:
+        data = {
+        "title": "Note",
+        "heading": "Not found",
+        }
+        return render(request, 'notes/note.html', data)

@@ -22,13 +22,21 @@ def view_groups(request):
         return render(request, 'main/index.html', data)
 
 def view_group_notes(request, group_id):
-    notes = Notes.objects.filter(group_name=group_id).order_by('date_create', 'date_update')
-    data = {
-    "title": "Notes",
-    "heading": "Мои заметки",
-    'notes': notes
-    }
-    return render(request, 'notes/notes.html', data)
+    group = get_object_or_404(NotesGroups, pk=group_id)
+    if group.group_owner == request.user:
+        notes = Notes.objects.filter(group_name=group_id).order_by('date_create', 'date_update')
+        data = {
+        "title": "Notes",
+        "heading": "Мои заметки",
+        'notes': notes
+        }
+        return render(request, 'notes/notes.html', data)
+    else:
+        data = {
+        "title": "Group",
+        "heading": "Not found",
+        }
+        return render(request, 'groups/group.html', data)
 
 def detail(request, group_id):
     group = get_object_or_404(NotesGroups, pk=group_id)

@@ -3,6 +3,7 @@
 {% block title %}{{ title }} - {{note.title}}{% endblock %}
 
 {% block content %}
+  {% if note %}
   <div class="heading">
     <a href="{% url 'groups:view_groups' %}">
       <button class="btn btn-back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
@@ -15,7 +16,7 @@
       <button class="btn"><i class="fas fa-trash-alt"></i> Удалить</button>
     </a>
   </div>
-  {% if note %}
+  
     <div class="card">
       <div class="card-header">
         <span class="card-header-text">{{ note.preview }}</span>
