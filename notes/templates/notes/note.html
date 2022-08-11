@@ -16,19 +16,18 @@
       <button class="btn"><i class="fas fa-trash-alt"></i> Удалить</button>
     </a>
   </div>
-  
-    <div class="card">
-      <div class="card-header">
-        <span class="card-header-text">{{ note.preview }}</span>
-      </div>
-      <div class="card-body">
-        <p class="card-text">{{ note.full_text|safe }}</p>
-        <p class="card-text-secondary">Создано: {{ note.date_create }}</p>
-        {% if note.date_update %}
-        <p class="card-text-secondary">Обновлено: {{ note.date_update }}</p>
-        {% endif %}
-      </div>
+  <div class="card">
+    <div class="card-header">
+      <span class="card-header-text">{{ note.preview }}</span>
     </div>
+    <div class="card-body">
+      <p class="card-text">{{ note.full_text|safe }}</p>
+      <p class="card-text-secondary">Создано: {{ note.date_create }}</p>
+      {% if note.date_update %}
+      <p class="card-text-secondary">Обновлено: {{ note.date_update }}</p>
+      {% endif %}
+    </div>
+  </div>
   {% else %}
     <h3>Заметки нет</h3>
   {% endif %}

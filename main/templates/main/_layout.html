@@ -12,8 +12,8 @@
 </head>
 <body>
   <div class="main-header">
-    {% if user.is_authenticated %}
     <div class="sitename">Notepad</div>
+    {% if user.is_authenticated %}
     <div class="user-panel">
       <div class="username">{{ user.username }}</div>
       <form action="{% url 'main:logoutuser' %}" method="POST" class="form-logout">

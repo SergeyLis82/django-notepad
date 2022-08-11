@@ -6,7 +6,7 @@
     <h3>{{ heading }}</h3>
     <p>{{ content|linebreaksbr }}</p>
     <h2>{{ error }}</h2>
-    <form method="POST">
+    <form method="POST" class="form-login">
     {% csrf_token %}
     {{ form.as_p }}
     <button class="btn" style="margin-left: 20px" type="submit"><i class="fas fa-sign-in-alt"></i> Войти</button>
